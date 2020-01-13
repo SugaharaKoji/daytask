@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.string :name
       t.text :description
 
+      // created_at,updated_atカラムが生成される
       t.timestamps
     end
   end
