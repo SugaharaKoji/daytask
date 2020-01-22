@@ -14,7 +14,7 @@ table.table.table-hover
     - @tasks.each do |task|
       tr
         td= link_to task.name, task_path(task)
-        td= task.created_at
+        td= task.created_at.strftime('%Y年%m月%d日')
         td
           = link_to '編集', edit_task_path(task), class: 'btn btn-primary mr-3'
           = link_to '削除', task_path(task), method: :delete, data: { confirm: "タスクを消しますか" },

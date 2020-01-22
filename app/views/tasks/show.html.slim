@@ -16,10 +16,10 @@ table.table.table-hover
       td= auto_link(simple_format(h(@task.description), {}, danitize: false, wrapper_tag: "div"))
     tr
       th= Task.human_attribute_name(:created_at)
-      td= @task.created_at
+      td= @task.created_at.strftime('%Y年%m月%d日')
     tr
       th= Task.human_attribute_name(:updated_at)
-      td= @task.updated_at
+      td= @task.updated_at.strftime('%Y年%m月%d日')
 = link_to '編集', edit_task_path, class: 'btn btn-primary mr-3'
 = link_to '削除', task_path(@task), method: :delete, data: { confirm: "タスクを消しますか" },
   class: 'btn btn-danger'
