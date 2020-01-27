@@ -10,7 +10,9 @@ module Daytask
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    
+    #デフォルト時間設定　＝　日本標準時間
+    config.time_zone = 'Asia/Tokyo'
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
