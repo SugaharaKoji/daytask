@@ -17,6 +17,12 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.new(task_params)
+
+    if params[:back].present?
+      render :new
+      return
+    end
+    
     if @task.save
       logger.debug "task: #{@task.attributes.inspect}"
       redirect_to @task, notice: "タスクを「#{@task.name}」登録しました"
@@ -35,11 +41,10 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: "タスクを「#{task.name}」を削除しました"
   end
 
-  # def task_logger
-  #   @task_logger ||= Logger.new('log/task_log', 'dailys')
-  # end
-  #
-  # task_logger.debug 'taskのログを出力'
+  def confirm_new
+    @task = current_user.tasks.new(task_params)
+    render :new unless @task.valid?
+  end
 
   private
 
