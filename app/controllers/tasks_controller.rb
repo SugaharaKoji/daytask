@@ -35,11 +35,11 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: "タスクを「#{task.name}」を削除しました"
   end
 
-  def task_logger
-    @task_logger ||= Logger.new('log/task_log', 'dailys')
-  end
-
-  task_logger.debug 'taskのログを出力' 
+  # def task_logger
+  #   @task_logger ||= Logger.new('log/task_log', 'dailys')
+  # end
+  #
+  # task_logger.debug 'taskのログを出力'
 
   private
 

@@ -66,7 +66,7 @@ Rails.application.configure do
 
   #ロガーフォーマット設定
   #ログレベル、タイムスタンプ、ログファイルの作成時に使うプログラム名、ログメッセージ、４つの引数
-  config.ligger.formatter = proc { |severity, timestamp, progname, message|
+  config.logger.formatter = proc { |severity, timestamp, progname, message|
     "#{timestamp} :#{serverity}: #{message}\n"
   }
 end
